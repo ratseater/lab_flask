@@ -1,9 +1,10 @@
 import random
 # бибилиотека keras для НС
-from tensorflow import keras
+#from tensorflow import keras
+import keras
 # входной слой сети и модель сети
-from tensorflow.keras.layers import Input
-from tensorflow.keras.models import Model
+from keras.layers import Input
+from keras.models import Model
 # одна из предобученных сетей
 from keras.applications.resnet50 import preprocess_input, decode_predictions
 import os
