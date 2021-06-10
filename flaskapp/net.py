@@ -35,10 +35,10 @@ def read_image_files(files_max_count,dir_name):
  files = os.listdir(dir_name)
  files_count = files_max_count
  if(files_max_count>len(files)): # определяем количество файлов не больше max
- files_count = len(files)
+  files_count = len(files)
  image_box = [[]]*files_count
  for file_i in range(files_count): # читаем изображения в список
- image_box[file_i] = Image.open(dir_name+'/'+files[file_i]) # / ??
+  image_box[file_i] = Image.open(dir_name+'/'+files[file_i]) # / ??
  return files_count, image_box
 # возвращаем результаты работы нейронной сети
 def getresult(image_box):
@@ -46,7 +46,7 @@ def getresult(image_box):
  images_resized = [[]]*files_count
  # нормализуем изображения и преобразуем в numpy
  for i in range(files_count):
- images_resized[i] = np.array(image_box[i].resize((height,width)))/255.0
+  images_resized[i] = np.array(image_box[i].resize((height,width)))/255.0
  images_resized = np.array(images_resized)
  # подаем на вход сети изображение в виде numpy массивов
  out_net = resnet.predict(images_resized) 
