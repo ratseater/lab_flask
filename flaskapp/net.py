@@ -3,6 +3,7 @@ import random
 #from tensorflow import keras
 #import keras
 # входной слой сети и модель сети
+from tensorflow import keras
 from tensorflow.keras.layers import Input
 from tensorflow.keras.models import Model
 # одна из предобученных сетей
