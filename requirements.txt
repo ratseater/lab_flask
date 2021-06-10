@@ -4,5 +4,5 @@ requests
 Flask-Bootstrap
 Flask-WTF
 Pillow
-tensorflow==2.5.0
+tensorflow==2.4.
 lxml
