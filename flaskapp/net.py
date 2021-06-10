@@ -1,6 +1,6 @@
 import random
 # бибилиотека keras для НС
-import keras
+from tensorflow import keras
 # входной слой сети и модель сети
 from tensorflow.keras.layers import Input
 from tensorflow.keras.models import Model
