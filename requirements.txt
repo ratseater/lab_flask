@@ -4,6 +4,6 @@ requests==2.23.
 Flask-Bootstrap==3.3.7.
 Flask-WTF==0.14.
 Pillow==6.2.
-tensorflow==2.2.0
+tensorflow==2.1.0
 Keras==2.3.0
 lxml==4.3.
