@@ -1,7 +1,7 @@
 # импортируем нужные модули
 import os
 from io import BytesIO
-import base
+import base64
 
 img_data = None
 # создаем путь к файлу (для кроссплатформенности, например)
