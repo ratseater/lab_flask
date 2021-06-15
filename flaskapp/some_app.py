@@ -1,3 +1,7 @@
+#fix
+from werkzeug import url_encode
+
+#Init
 from flask import Flask
 app = Flask(__name__)
 
