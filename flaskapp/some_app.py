@@ -93,7 +93,6 @@ def net():
 from flask import request
 from flask import Response
 import base64
-from base import *
 from PIL import Image
 from io import BytesIO
 import json
