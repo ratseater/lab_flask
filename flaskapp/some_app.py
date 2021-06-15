@@ -1,3 +1,14 @@
+from flask import Flask
+app = Flask(__name__)
+
+#декоратор для вывода страницы по умолчанию
+@app.route("/")
+def hello():
+    return "<html><head></head> <body> Hello World! </body></html>"
+
+if __name__ == "__main__":
+    app.run(host='127.0.0.1',port=5000)
+
 from flask import render_template
 
 #наша новая функция сайта
@@ -21,8 +32,8 @@ from flask_wtf.file import FileField, FileAllowed, FileRequired
 
 # используем капчу и полученные секретные ключи с сайта google
 app.config['RECAPTCHA_USE_SSL'] = False
-app.config['RECAPTCHA_PUBLIC_KEY'] ='сюда поместить ключ из google'
-app.config['RECAPTCHA_PRIVATE_KEY'] ='сюда поместить секретный ключ из google'
+app.config['RECAPTCHA_PUBLIC_KEY'] ='6Ldp9CMbAAAAACpWJaajNGHDrVxj1nChAljJeOTh'
+app.config['RECAPTCHA_PRIVATE_KEY'] ='6Ldp9CMbAAAAAKhvub9yxpRVKtGEqXxx_S5076Qf'
 app.config['RECAPTCHA_OPTIONS'] = {'theme':'white'}
 
 # создаем форму для загрузки файла
