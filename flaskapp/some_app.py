@@ -42,6 +42,8 @@ app.config['RECAPTCHA_PUBLIC_KEY'] ='6Ldp9CMbAAAAACpWJaajNGHDrVxj1nChAljJeOTh'
 app.config['RECAPTCHA_PRIVATE_KEY'] ='6Ldp9CMbAAAAAKhvub9yxpRVKtGEqXxx_S5076Qf'
 app.config['RECAPTCHA_OPTIONS'] = {'theme':'white'}
 
+from flask_bootstrap import Bootstrap
+bootstrap = Bootstrap(app)
 # создаем форму для загрузки файла
 class NetForm(FlaskForm):
     # поле для введения строки, валидируется наличием данных
