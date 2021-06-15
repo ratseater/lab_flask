@@ -25,9 +25,9 @@ session = InteractiveSession(config=config)
 '''
 height = 224
 width = 224
-nh=
-nw=
-ncol=
+nh=224
+nw=224
+ncol=3
 
 # загружаем и создаем стандартную уже обученную сеть keras
 visible2 = Input(shape=(nh,nw,ncol),name ='imginp')
