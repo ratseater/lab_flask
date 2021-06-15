@@ -79,7 +79,7 @@ def net():
         decode = neuronet.getresult(fimage)
         # записываем в словарь данные классификации
         for elem in decode:
-        neurodic[elem[0][1]] = elem[0][2]
+            neurodic[elem[0][1]] = elem[0][2]
         # сохраняем загруженный файл
         form.upload.data.save(filename)
     # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
