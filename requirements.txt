@@ -7,3 +7,4 @@ Pillow==6.2.
 tensorflow==2.0.
 Keras==2.3.
 lxml==4.3.
+werkzeug==0.16.0
