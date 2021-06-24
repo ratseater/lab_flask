@@ -71,7 +71,7 @@ import os
 # для исключения конфликта имен
 import net as neuronet
 # метод обработки запроса GET и POST от клиента
-import StringIO
+from io import StringIO
 import base64
 @app.route("/net",methods=['GET','POST'])
 def net():
