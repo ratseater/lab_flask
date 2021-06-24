@@ -93,9 +93,8 @@ def net():
         images_resized = [[]]
         height = 256
         width = 256
-        images_resized = np.array(image_box[0].resize((height,width)))/255.
-        images_resized = np.array(images_resized)
-        #image_ = 
+        image_ = np.array(fimage[0].resize((height,width)))/255.
+        image_ = np.array(image_)
         img = StringIO.StringIO()
         y = [1,2,3,4,5]
         x = [0,2,1,3,4]
