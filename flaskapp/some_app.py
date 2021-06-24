@@ -71,7 +71,7 @@ import os
 # для исключения конфликта имен
 import net as neuronet
 # метод обработки запроса GET и POST от клиента
-from io import StringIO
+from io import BytesIO
 import base64
 from PIL import Image
 import numpy as np
@@ -108,7 +108,7 @@ def net():
         width = 256
         image_ = np.array(fimage[0].resize((height,width)))/255.
         image_ = np.array(image_)
-        img = StringIO.StringIO()
+        img = BytesIO()
         y = [1,2,3,4,5]
         x = [0,2,1,3,4]
 
