@@ -84,7 +84,7 @@ def net():
     #******
     image_ = [[]]
     size = 0
-    s = ""
+    S = ""
     B = S.encode("UTF-8")
     plot_url = base64.b64encode(B)
     #******
