@@ -51,6 +51,7 @@ class NetForm(FlaskForm):
     # и указывает пользователю ввести данные если они не введены
     # или неверны
     openid = StringField('openid', validators = [DataRequired()])
+    size = StringField('size', validators = [DataRequired()])
     # поле загрузки файла
     # здесь валидатор укажет ввести правильные файлы
     upload = FileField('Load image', validators=[
@@ -70,6 +71,8 @@ import os
 # для исключения конфликта имен
 import net as neuronet
 # метод обработки запроса GET и POST от клиента
+import StringIO
+import base64
 @app.route("/net",methods=['GET','POST'])
 def net():
     # создаем объект формы
@@ -84,6 +87,27 @@ def net():
         fcount, fimage = neuronet.read_image_files(10,'./static')
         # передаем все изображения в каталоге на классификацию
         # можете изменить немного код и передать только загруженный файл
+        
+        #*********
+        size = form.size
+        images_resized = [[]]
+        height = 256
+        width = 256
+        images_resized = np.array(image_box[0].resize((height,width)))/255.
+        images_resized = np.array(images_resized)
+        #image_ = 
+        img = StringIO.StringIO()
+        y = [1,2,3,4,5]
+        x = [0,2,1,3,4]
+
+        plt.plot(x,y)
+        plt.savefig(img, format='png')
+        plt.close()
+        img.seek(0)
+
+        plot_url = base64.b64encode(img.getvalue())
+        #*********
+        
         decode = neuronet.getresult(fimage)
         # записываем в словарь данные классификации
         for elem in decode:
@@ -92,7 +116,7 @@ def net():
         form.upload.data.save(filename)
     # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
     # сети если был нажат сабмит, либо передадим falsy значения
-    return render_template('net.html',form=form,image_name=filename,neurodic=neurodic)
+    return render_template('net.html',form=form,image_name=filename,neurodic=neurodic, f_image=image_, plot_url=plot_url)
 
 from flask import request
 from flask import Response
