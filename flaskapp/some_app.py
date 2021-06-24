@@ -54,7 +54,7 @@ class NetForm(FlaskForm):
     size = StringField('size', validators = [DataRequired()])
     # поле загрузки файла
     # здесь валидатор укажет ввести правильные файлы
-    upload = wtforms.FileField('Load image', validators=[
+    upload = FileField('Load image', validators=[
         FileRequired(),
         FileAllowed(['jpg','png','jpeg'],'Images only!')])
     # поле формы с capture
