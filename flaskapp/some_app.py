@@ -73,6 +73,10 @@ import net as neuronet
 # метод обработки запроса GET и POST от клиента
 from io import StringIO
 import base64
+from PIL import Image
+import numpy as np
+import seaborn as sns
+import matplotlib as plt
 @app.route("/net",methods=['GET','POST'])
 def net():
     # создаем объект формы
