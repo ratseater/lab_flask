@@ -115,7 +115,7 @@ def net():
         form.upload.data.save(filename)
     # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
     # сети если был нажат сабмит, либо передадим falsy значения
-    return render_template('net.html',form=form,image_name=filename,neurodic=neurodic, f_image=image_, plot_url=plot_url)
+    return render_template('net.html',form=form,image_name=filename,neurodic=neurodic,plot_url=plot_url)
 
 from flask import request
 from flask import Response
