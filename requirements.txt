@@ -10,3 +10,4 @@ lxml==4.3.
 werkzeug==0.16.0
 h5py==2.10.
 matplotlib
+seaborn
