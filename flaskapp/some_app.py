@@ -32,7 +32,7 @@ from flask_wtf import FlaskForm,RecaptchaField
 from wtforms import StringField, SubmitField, TextAreaField
 # модули валидации полей формы
 from wtforms.validators import DataRequired
-from flask_wtf.file import FileField, FileAllowed, FileRequired, IntegerField
+from flask_wtf.file import FileField, FileAllowed, FileRequired
 
 SECRET_KEY = 'secret'
 app.config['SECRET_KEY'] = SECRET_KEY
