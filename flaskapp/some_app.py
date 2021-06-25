@@ -117,7 +117,7 @@ def net():
         plt.close()
         img.seek(0)
 
-        plot_url = base64.b64encode(img.getvalue())
+        plot_url = base64.b64encode(img.getvalue()).decode('utf8')
         #*********
         
         decode = neuronet.getresult(fimage)
