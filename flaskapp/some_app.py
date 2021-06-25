@@ -75,7 +75,7 @@ from io import BytesIO
 import base64
 from PIL import Image
 import numpy as np
-#import seaborn as sns
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 @app.route("/net",methods=['GET','POST'])
