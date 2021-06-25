@@ -103,7 +103,7 @@ def net():
         # можете изменить немного код и передать только загруженный файл
         
         #*********
-        size = form.size
+        size = int(form.size)
         images_resized = [[]]
         height = 256
         width = 256
