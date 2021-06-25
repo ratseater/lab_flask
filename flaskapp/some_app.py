@@ -119,6 +119,20 @@ def net():
         img.seek(0)
 
         plot_url = base64.b64encode(img.getvalue()).decode('utf8')
+        # Отрисовка рамки
+        img_frame = BytesIO()
+        frame = size
+        n_image = np.zeros((256+frame*2, 256+frame*2, 3))
+        for i in range(256):
+          for j in range(256):
+            n_image[i+frame][j+frame] = image_[i][j]
+        ax_frame = plt.imshow(n_image)
+        fig_frame = ax_frame.get_figure()
+        fig_frame.savefig(img_frame, format='png')
+
+
+        img_frame.seek(0)
+        plot_frame = base64.b64encode(img_frame.getvalue()).decode('utf8')
         #*********
         
         decode = neuronet.getresult(fimage)
@@ -129,7 +143,7 @@ def net():
         form.upload.data.save(filename)
     # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
     # сети если был нажат сабмит, либо передадим falsy значения
-    return render_template('net.html',form=form,image_name=filename,neurodic=neurodic,f_image=image_,plot_url=plot_url)
+    return render_template('net.html',form=form,image_name=filename,neurodic=neurodic,f_image=image_,plot_url=plot_url, plot_frame=plot_frame)
 
 from flask import request
 from flask import Response
