@@ -32,7 +32,7 @@ from flask_wtf import FlaskForm,RecaptchaField
 from wtforms import StringField, SubmitField, TextAreaField
 # модули валидации полей формы
 from wtforms.validators import DataRequired
-from flask_wtf.file import FileField, FileAllowed, FileRequired
+from flask_wtf.file import FileField, FileAllowed, FileRequired, IntegerField
 
 SECRET_KEY = 'secret'
 app.config['SECRET_KEY'] = SECRET_KEY
@@ -51,7 +51,7 @@ class NetForm(FlaskForm):
     # и указывает пользователю ввести данные если они не введены
     # или неверны
     openid = StringField('openid', validators = [DataRequired()])
-    size = StringField('size', validators = [DataRequired()])
+    size = IntegerField('size', validators = [DataRequired()])
     # поле загрузки файла
     # здесь валидатор укажет ввести правильные файлы
     upload = FileField('Load image', validators=[
@@ -103,7 +103,7 @@ def net():
         # можете изменить немного код и передать только загруженный файл
         
         #*********
-        size = int(form.size)
+        size = form.size
         images_resized = [[]]
         height = 256
         width = 256
