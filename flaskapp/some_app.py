@@ -86,7 +86,7 @@ def net():
     filename=None
     neurodic = {}
     
-    #******
+    # Определяем нужные переменные
     image_ = [[]]
     size = 0
     S = ""
@@ -100,19 +100,18 @@ def net():
         filename = os.path.join('./static', secure_filename(form.upload.data.filename))
         fcount, fimage = neuronet.read_image_files(10,'./static')
         # передаем все изображения в каталоге на классификацию
-        # можете изменить немного код и передать только загруженный файл
-        
-        #*********
+ 
         size = form.size.data
         images_resized = [[]]
         height = 256
         width = 256
         image_ = np.array(fimage[0].resize((height,width)))/255.
         image_ = np.array(image_)
+        # Создание представления в оттенках серого
         grey = 0.299*image_[:,:,0] + 0.587*image_[:,:,1] + 0.114*image_[:,:,2]
         img = BytesIO()
         
-        #sns.set_style("dark")
+        # Построение и кодирование гистограммы
         ax = sns.distplot(grey, kde=False, bins=30)
         fig = ax.get_figure()
         fig.savefig(img, format='png')
@@ -144,7 +143,8 @@ def net():
         form.upload.data.save(filename)
     # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
     # сети если был нажат сабмит, либо передадим falsy значения
-    return render_template('net.html',form=form,image_name=filename,neurodic=neurodic,f_image=image_,plot_url=plot_url, plot_frame=plot_frame)
+    return render_template('net.html',form=form,image_name=filename,neurodic=neurodic,
+                           plot_url=plot_url, plot_frame=plot_frame)
 
 from flask import request
 from flask import Response
