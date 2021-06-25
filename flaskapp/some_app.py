@@ -109,9 +109,8 @@ def net():
         image_ = np.array(fimage[0].resize((height,width)))/255.
         image_ = np.array(image_)
         img = BytesIO()
-        y = [1,2,3,4,5]
-        x = [0,2,1,3,4]
-
+        
+        sns.set_style("dark")
         plt.plot(x,y)
         plt.savefig(img, format='png')
         plt.close()
