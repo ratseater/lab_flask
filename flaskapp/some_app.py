@@ -201,3 +201,4 @@ def apixml():
     #преобразуем из памяти dom в строку, возможно, понадобится указать кодировку
     strfile = ET.tostring(newhtml)
     return strfile
+#end
