@@ -108,12 +108,14 @@ def net():
         width = 256
         image_ = np.array(fimage[0].resize((height,width)))/255.
         image_ = np.array(image_)
+        grey = 0.299*image_[:,:,0] + 0.587*image_[:,:,1] + 0.114*image_[:,:,2]
         img = BytesIO()
         
-        sns.set_style("dark")
-        plt.plot(x,y)
-        plt.savefig(img, format='png')
-        plt.close()
+        #sns.set_style("dark")
+        ax = sns.distplot(grey, kde=False, bins=30)
+        fig = ax.get_figure()
+        fig.savefig(img, format='png')
+        #fig.close()
         img.seek(0)
 
         plot_url = base64.b64encode(img.getvalue()).decode('utf8')
