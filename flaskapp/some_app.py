@@ -92,6 +92,7 @@ def net():
     S = ""
     B = S.encode("UTF-8")
     plot_url = base64.b64encode(B)
+    plot_frame = base64.b64encode(B)
     #******
     # проверяем нажатие сабмит и валидацию введенных данных
     if form.validate_on_submit():
