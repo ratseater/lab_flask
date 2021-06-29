@@ -106,9 +106,9 @@ def net():
  
         size = form.size.data
     
-        color_red = form color_red.data
-        color_green = form color_green.data
-        color_blue = form color_blue.data
+        color_red = form.color_red.data
+        color_green = form.color_green.data
+        color_blue = form.color_blue.data
         
         images_resized = [[]]
         height = 256
