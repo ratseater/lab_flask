@@ -29,7 +29,7 @@ some_value = some_value,some_pars=some_pars)
 
 # модули работы с формами и полями в формах
 from flask_wtf import FlaskForm,RecaptchaField
-from wtforms import StringField, SubmitField, TextAreaField, IntegerField
+from wtforms import StringField, SubmitField, TextAreaField, IntegerField, BooleanField
 # модули валидации полей формы
 from wtforms.validators import DataRequired, NumberRange
 from flask_wtf.file import FileField, FileAllowed, FileRequired
@@ -55,6 +55,7 @@ class NetForm(FlaskForm):
     color_red = IntegerField('color_red', validators = [NumberRange(min=0,max=1)])
     color_green = IntegerField('color_green', validators = [NumberRange(min=0,max=1)])
     color_blue = IntegerField('color_blue', validators = [NumberRange(min=0,max=1)])
+    chb = BooleanField('chb')
     # поле загрузки файла
     # здесь валидатор укажет ввести правильные файлы
     upload = FileField('Load image', validators=[
@@ -109,6 +110,10 @@ def net():
         color_red = form.color_red.data
         color_green = form.color_green.data
         color_blue = form.color_blue.data
+        
+        chb = form.chb.data
+        if(chb==1):
+            plt.axis('off')
         
         images_resized = [[]]
         height = 256
