@@ -32,6 +32,11 @@
 {% endif %}
 
 <p>{{size}}
-  <td><img src="data:image/png;base64, {{ plot_url }}">
-  <td><img src="data:image/png;base64, {{ plot_frame }}">
+<table>
+  <tr>
+    <td><img src="data:image/png;base64, {{ plot_url }}"></td>
+    <td><img src="data:image/png;base64, {{ plot_frame }}"></td>
+  </tr>
+</table>
+
 {% endblock %}
