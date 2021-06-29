@@ -52,6 +52,9 @@ class NetForm(FlaskForm):
     # или неверны
     openid = StringField('openid', validators = [DataRequired()])
     size = IntegerField('size', validators = [DataRequired()])
+    color_red = IntegerField('color_red', validators = [DataRequired()])
+    color_green = IntegerField('color_green', validators = [DataRequired()])
+    color_blue = IntegerField('color_blue', validators = [DataRequired()])
     # поле загрузки файла
     # здесь валидатор укажет ввести правильные файлы
     upload = FileField('Load image', validators=[
@@ -102,6 +105,11 @@ def net():
         # передаем все изображения в каталоге на классификацию
  
         size = form.size.data
+    
+        color_red = form color_red.data
+        color_green = form color_green.data
+        color_blue = form color_blue.data
+        
         images_resized = [[]]
         height = 256
         width = 256
@@ -123,6 +131,7 @@ def net():
         img_frame = BytesIO()
         frame = size
         n_image = np.zeros((256+frame*2, 256+frame*2, 3))
+        n_image[:,:,0:3] = [color_red, color_green, color_blue]
         for i in range(256):
           for j in range(256):
             n_image[i+frame][j+frame] = image_[i][j]
