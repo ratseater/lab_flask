@@ -32,14 +32,15 @@
 {% endif %}-->
 
 <p>{{size}}
-<table align="center" width=1000>
+<table align="center" width=672>
   <th>Original image</th>
   <th>Histogram</th>
   <th>Image with frame</th>
   <tr>
-    <td><img src={{image_name}} class="img-rounded" alt="My Image"></td>
-    <td><img src={{plot_url}} class="img-rounded" alt="My Image"></td>
-    <td><img src="data:image/png;base64, {{ plot_frame }}"></td>
+    <td><img src={{image_name}} class="img-rounded" alt="My Image" width = 224 height=224></td>
+    <td><img src={{plot_url}} class="img-rounded" alt="My Image" width = 224 height=224></td>
+    <!--<td><img src="data:image/png;base64, {{ plot_frame }}"></td> -->
+    <td><img src={{plot_url}} class="img-rounded" alt="My Image" width = 224 height=224></td>
   </tr>
 </table>
 
