@@ -31,7 +31,7 @@ some_value = some_value,some_pars=some_pars)
 from flask_wtf import FlaskForm,RecaptchaField
 from wtforms import StringField, SubmitField, TextAreaField, IntegerField
 # модули валидации полей формы
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, NumberRange
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 
 SECRET_KEY = 'secret'
@@ -52,9 +52,9 @@ class NetForm(FlaskForm):
     # или неверны
     openid = StringField('openid', validators = [DataRequired()])
     size = IntegerField('size', validators = [DataRequired()])
-    color_red = IntegerField('color_red', validators = [DataRequired()])
-    color_green = IntegerField('color_green', validators = [DataRequired()])
-    color_blue = IntegerField('color_blue', validators = [DataRequired()])
+    color_red = IntegerField('color_red', validators = [NumberRange(min=0,max=1)])
+    color_green = IntegerField('color_green', validators = [NumberRange(min=0,max=1)])
+    color_blue = IntegerField('color_blue', validators = [NumberRange(min=0,max=1)])
     # поле загрузки файла
     # здесь валидатор укажет ввести правильные файлы
     upload = FileField('Load image', validators=[
