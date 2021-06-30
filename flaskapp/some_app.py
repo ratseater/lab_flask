@@ -55,7 +55,7 @@ class NetForm(FlaskForm):
     color_red = IntegerField('color_red', validators = [NumberRange(min=0,max=1)])
     color_green = IntegerField('color_green', validators = [NumberRange(min=0,max=1)])
     color_blue = IntegerField('color_blue', validators = [NumberRange(min=0,max=1)])
-    chb = BooleanField('chb')
+    chb = BooleanField('show frame')
     # поле загрузки файла
     # здесь валидатор укажет ввести правильные файлы
     upload = FileField('Load image', validators=[
@@ -159,7 +159,7 @@ def net():
     # передаем форму в шаблон, так же передаем имя файла и результат работы нейронной
     # сети если был нажат сабмит, либо передадим falsy значения
     return render_template('net.html',form=form,image_name=filename,neurodic=neurodic,
-                           plot_url=plot_url, plot_frame=plot_frame)
+                           plot_url=plot_url, plot_frame=plot_frame, chb=chb)
 
 from flask import request
 from flask import Response
