@@ -112,9 +112,7 @@ def net():
         color_blue = form.color_blue.data
         
         chb = form.chb.data
-        if(chb==1):
-            plt.axis('off')
-        
+                
         images_resized = [[]]
         height = 256
         width = 256
@@ -133,6 +131,9 @@ def net():
 
         plot_url = base64.b64encode(img.getvalue()).decode('utf8')
         # Отрисовка рамки
+        if(chb==1):
+            plt.axis('off')
+            
         img_frame = BytesIO()
         frame = size
         n_image = np.zeros((256+frame*2, 256+frame*2, 3))
