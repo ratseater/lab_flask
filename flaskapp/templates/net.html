@@ -31,6 +31,19 @@
 <p> There is no image yet </p>
 {% endif %}-->
 
+{% if chb==1 %}
+<p>{{size}}
+<table align="left" bordercolor="red" border="2">
+  <th><pre>   Original image</pre></th>
+  <th><pre>    Histogram</pre></th>
+  <th><pre>    Image with frame</pre></th>
+  <tr>
+    <td width = 300 height=300><img src={{image_name}} class="img-rounded" alt="My Image" width = 300 height=300></td>
+    <td width = 300 height=300><img src="data:image/png;base64, {{ plot_url }}"></td>
+    <td width = 300 height=300><img src="data:image/png;base64, {{ plot_frame }}"></td>
+  </tr>
+</table>
+{% else %}
 <p>{{size}}
 <table align="left">
   <th><pre>   Original image</pre></th>
@@ -42,5 +55,7 @@
     <td width = 300 height=300><img src="data:image/png;base64, {{ plot_frame }}"></td>
   </tr>
 </table>
+{% endif %}
+
 
 {% endblock %}
