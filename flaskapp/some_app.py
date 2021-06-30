@@ -93,6 +93,7 @@ def net():
     # Определяем нужные переменные
     image_ = [[]]
     size = 0
+    chb = 0
     S = ""
     B = S.encode("UTF-8")
     plot_url = base64.b64encode(B)
